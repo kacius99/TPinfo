@@ -22,13 +22,7 @@
 
         var orig_input = input;
         input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-        if (orig_input != input)
-            alert ("Warning! Characters outside Base64 range in input string ignored.");
-        if (input.length % 4) {
-            alert ("Error: Input length is not a multiple of 4 bytes.");
-            return "";
-        }
-        
+               
         var j=0;
         while (i < input.length) {
 
@@ -87,16 +81,10 @@
             htmlStr += "<i>[" + output[i] + "]<" + "/i>";
           }
         }
-        htmlStr += "<" + "/b><" + "/p>";  // stupid W3C validator...
+       
         document.frmConvert.hex.value = hexText;
                 
         ShowDecodedAsText(htmlStr);   
     }
-    
-    function ConvertToFile() {
-      Convert();
-      createFileFromHex(document.frmConvert.hex.value, document.frmConvert.filename.value);
-    } 
 
-//-->
 </script>
